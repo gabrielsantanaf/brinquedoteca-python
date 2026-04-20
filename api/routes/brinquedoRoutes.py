@@ -18,4 +18,18 @@ def criar(payload: BrinquedoCreate) -> BrinquedoOut:
         faixa_etaria=brinquedo.faixa_etaria,
         disponivel=brinquedo.disponivel,
     )
+
+@router.get("/{brinquedo_id}", response_model=BrinquedoOut)
+def buscar(brinquedo_id: int) -> BrinquedoOut:
+    brinquedo = service.buscar_brinquedo_por_id(brinquedo_id)
+    if not brinquedo:
+        raise HTTPException(status_code=404, detail="Brinquedo não encontrado")
+
+    return BrinquedoOut(
+        id=brinquedo.id,
+        nome=brinquedo.nome,
+        categoria=brinquedo.categoria,
+        faixa_etaria=brinquedo.faixa_etaria,
+        disponivel=brinquedo.disponivel,
+    )
     

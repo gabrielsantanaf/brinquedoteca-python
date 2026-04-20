@@ -1,5 +1,5 @@
 from dataclasses import dataclass
-from domain.enums import status
+from domain.enums import status_emprestimo
 
 
 @dataclass
@@ -9,4 +9,4 @@ class Emprestimo:
     brinquedo_id: int
     data_emprestimo: str
     data_devolucao: str = None
-    status: status = status.DISPONIVEL
+    status: status_emprestimo = status_emprestimo.EMPRESTADO

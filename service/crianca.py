@@ -12,3 +12,6 @@ def cadastrar_crianca(crianca: CriancaCreate) -> Crianca:
     )
     db.crianca_por_id[novo_id] = nova_crianca
     return nova_crianca
+
+def buscar_crianca_por_id(crianca_id: int) -> Crianca:
+    return db.crianca_por_id.get(crianca_id)

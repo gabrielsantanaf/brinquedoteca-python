@@ -12,3 +12,6 @@ def cadastrar_brinquedo(brinquedo: Brinquedo) -> Brinquedo:
     )
     db.brinquedo_por_id[novo_id] = novo_brinquedo
     return novo_brinquedo
+
+def buscar_brinquedo_por_id(brinquedo_id: int) -> Brinquedo:
+    return db.brinquedo_por_id.get(brinquedo_id)

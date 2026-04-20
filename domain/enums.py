@@ -1,5 +1,5 @@
 from enum import Enum
 
-class Status (str, Enum):
-    DISPONIVEL = "Disponível"
-    EMPRESTADO = "Emprestado"
+class status_emprestimo (str, Enum):
+    DEVOLVIDO = "devolvido"
+    EMPRESTADO = "emprestado"

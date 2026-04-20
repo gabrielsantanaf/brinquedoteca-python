@@ -17,3 +17,16 @@ def criar(payload: CriancaCreate) -> CriancaOut:
         idade=crianca.idade,
         responsavel=crianca.responsavel,
     )
+
+@router.get("/{crianca_id}", response_model=CriancaOut)
+def buscar(crianca_id: int) -> CriancaOut:
+    crianca = service.buscar_crianca_por_id(crianca_id)
+    if not crianca:
+        raise HTTPException(status_code=404, detail="Criança não encontrada")
+    
+    return CriancaOut(
+        id=crianca.id,
+        nome=crianca.nome,
+        idade=crianca.idade,
+        responsavel=crianca.responsavel,
+    )
